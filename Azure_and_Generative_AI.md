@@ -71,14 +71,18 @@ Compute handles processing, storage keeps data, and networking ensures secure co
 
 **Visual**: Screenshot of Azure Machine Learning Studio showing dataset upload.
 
-**Step 1: Sign into Azure Machine Learning Studio**  
-Go to [Azure Machine Learning Studio](https://ml.azure.com/) and sign in.
-
-**Step 2: Create a new workspace**  
+***Step 1: Sign into Azure Machine Learning Studio***
+Go to Azure Machine Learning Studio and sign in.
+***Step 2: Create a new workspace***
 Click "Create new workspace," choose your subscription, resource group, and region, and provide a name for the workspace.
+***Step 3: Upload your dataset***
+In the “Assets" section, click “Data" then click create. 
+On the DataType page Give the Dataset a name and under Type choose File as the source and click next. 
+On the Data source page select From local files and click next
+On the Destination storage type page accept the defaults and click next
+On the File selection page click the Upload File button then find and upload the previously downloaded CustomerChurn.csv then click 
+On the Review page double check your settings then click Create
 
-**Step 3: Upload your dataset**  
-In the "Datasets" section, click "Create dataset" and upload a CSV file with business data, such as sales or customer churn.
 :::
 
 ## **Types of Cloud Deployments**
