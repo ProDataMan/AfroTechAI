@@ -30,7 +30,8 @@ By the end of the session, participants will be able to:
 
 ## Workshop Agenda
 
-### 1. **Strategic Leadership in Cloud Adoption** (1 hour)
+### 1. **Strategic Leadership in Cloud Adoption** (1.25 hours)
+   - **Description**: This section will provide an overview of cloud computing, specifically Azure, and highlight the potential for transforming businesses through cloud adoption. We will focus on understanding the strategic leadership needed for successfully adopting cloud technologies.
    - **Introduction to Azure and Cloud Computing**
      - What is Azure and cloud computing?
      - Real-world examples of how businesses use Azure
@@ -39,8 +40,13 @@ By the end of the session, participants will be able to:
      - Developing a cloud adoption strategy
      - Building a cloud-ready culture
      - Aligning cloud initiatives with business goals
+   - **Demo 1: Exploring Azure AI Features**
+     - Introduction to Azure AI offerings
+     - Overview of Cognitive Services, Machine Learning, and AI integrations
+     - Practical exploration of how these services can be used in a business context
 
-### 2. **Generative AI: Leading Your Organization into the AI Era** (1 hour)
+### 2. **Generative AI: Leading Your Organization into the AI Era** (1.25 hours)
+   - **Description**: This section introduces participants to Generative AI and explores how organizations can leverage this emerging technology to gain a competitive edge. Participants will also learn about the leadership approaches required to successfully integrate AI into their strategies.
    - **Introduction to Generative AI**
      - What is Generative AI?
      - Popular Generative AI tools and their capabilities
@@ -49,15 +55,17 @@ By the end of the session, participants will be able to:
      - Crafting an AI vision and strategy
      - Identifying high-impact AI use cases
      - Addressing AI ethics and governance
+   - **Demo 2: Azure AI Studio**
+     - Introduction to Azure AI Studio
+     - Creating, training, and deploying a simple AI model
+     - Practical use case demonstration using Azure AI Studio to solve a business problem
 
-### 3. **Hands-on Demonstrations and Q&A** (1 hour)
-   - **Demo 1: Azure AutoML**
-     - Setting up AutoML and deploying a machine learning model
-   - **Demo 2: Generative AI in Action**
-     - Exploring a simple use case of Generative AI for business
+### 3. **Wrap-up and Q&A** (30 minutes)
    - **Q&A Session**
      - Open the floor to questions, providing further insights and clarification
-
+   - **Wrap-up**
+     - Recap key takeaways from the session
+     - Provide resources for further le
 ---
 
 **Contact Information**:  
