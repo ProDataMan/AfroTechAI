@@ -65,7 +65,7 @@ By the end of the session, participants will be able to:
      - Open the floor to questions, providing further insights and clarification
    - **Wrap-up**
      - Recap key takeaways from the session
-     - Provide resources for further le
+     - Provide resources for further learning
 ---
 
 **Contact Information**:  
