@@ -1,4 +1,4 @@
-# AfroTechAI
+# Afro Tech AI
 
 [Outline](AfroTechAI.md)
 
