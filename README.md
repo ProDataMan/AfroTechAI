@@ -9,3 +9,5 @@
 [Sports Data API](SportsDataAPI.md)
 
 [Imports Sports API Data to AutoML](AutoML_SportsDataAPI.md)
+
+[Factors Affecting Game Outcomes](FactorsAffectingGameOutcome.md)
