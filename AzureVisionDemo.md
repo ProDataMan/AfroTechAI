@@ -156,6 +156,208 @@ Azure AI Vision is an artificial intelligence capability that enables software s
 
 ---
 
-Continue to add the provided code for extracting **tags**, **objects**, and **people** based on the relevant sections.
+## **View the Images to Analyze**
+
+1. In **Visual Studio Code**, expand the `image-analysis` folder and open the **images** folder.
+2. View each image file (`street.jpg`, `building.jpg`, `person.jpg`) in Visual Studio Code to familiarize yourself with the images you'll analyze.
 
 ---
+
+## **Analyze an Image to Suggest a Caption**
+
+1. In the code file (`Program.cs` for C# or `image-analysis.py` for Python), locate the **Main function** and observe that the image file path is already specified.
+2. Find the **Authenticate Azure AI Vision client** section and ensure your credentials are correct.
+3. Find the `AnalyzeImage` function and follow these steps:
+
+### **Step 1: Specify Image Analysis Features**
+
+   **C#**:
+   ```csharp
+   // Specify features to retrieve
+   ImageAnalysisResult result = client.Analyze(
+       BinaryData.FromStream(stream),
+       VisualFeatures.Caption | VisualFeatures.DenseCaptions | VisualFeatures.Objects | VisualFeatures.Tags | VisualFeatures.People);
+   ```
+
+   **Python**:
+   ```python
+   # Specify features to retrieve
+   result = cv_client.analyze(
+       image_data=image_data,
+       visual_features=[
+           VisualFeatures.CAPTION,
+           VisualFeatures.DENSE_CAPTIONS,
+           VisualFeatures.TAGS,
+           VisualFeatures.OBJECTS,
+           VisualFeatures.PEOPLE],
+   )
+   ```
+
+### **Step 2: Display Analysis Results**
+
+   - Add the following code to display the generated caption:
+
+   **C#**:
+   ```csharp
+   // Display caption
+   if (result.Caption.Text != null)
+   {
+       Console.WriteLine($" Caption: \"{result.Caption.Text}\", Confidence {result.Caption.Confidence:0.00}\n");
+   }
+   ```
+
+   **Python**:
+   ```python
+   # Display caption
+   if result.caption is not None:
+       print(f"\nCaption: '{result.caption.text}', Confidence: {result.caption.confidence * 100:.2f}%")
+   ```
+
+---
+
+## **Get Suggested Tags for an Image**
+
+1. In the `AnalyzeImage` function, under the **Get image tags** comment, add the following code:
+
+   **C#**:
+   ```csharp
+   // Get image tags
+   if (result.Tags.Values.Count > 0)
+   {
+       Console.WriteLine("\n Tags:");
+       foreach (DetectedTag tag in result.Tags.Values)
+       {
+           Console.WriteLine($" '{tag.Name}', Confidence: {tag.Confidence:F2}");
+       }
+   }
+   ```
+
+   **Python**:
+   ```python
+   # Get image tags
+   if result.tags is not None:
+       print("\nTags:")
+       for tag in result.tags.list:
+           print(f" Tag: '{tag.name}', Confidence: {tag.confidence * 100:.2f}%")
+   ```
+
+2. Run the program for each image file and observe the tags.
+
+---
+
+## **Detect and Locate Objects in an Image**
+
+1. In the `AnalyzeImage` function, under the **Get objects in the image** comment, add the following code:
+
+   **C#**:
+   ```csharp
+   // Get objects in the image
+   if (result.Objects.Values.Count > 0)
+   {
+       Console.WriteLine(" Objects:");
+       foreach (DetectedObject obj in result.Objects.Values)
+       {
+           Console.WriteLine($" '{obj.Tags[0].Name}', Confidence: {obj.Confidence:F2}");
+       }
+   }
+   ```
+
+   **Python**:
+   ```python
+   # Get objects in the image
+   if result.objects is not None:
+       print("\nObjects:")
+       for obj in result.objects.list:
+           print(f" Object: '{obj.tags[0].name}', Confidence: {obj.confidence * 100:.2f}%")
+   ```
+
+2. Save and run the program for each image file, observing the objects detected.
+
+---
+
+## **Detect and Locate People in an Image**
+
+1. In the `AnalyzeImage` function, under the **Get people in the image** comment, add the following code:
+
+   **C#**:
+   ```csharp
+   // Get people in the image
+   if (result.People.Values.Count > 0)
+   {
+       Console.WriteLine(" People:");
+       foreach (DetectedPerson person in result.People.Values)
+       {
+           Console.WriteLine($" Detected person, Confidence: {person.Confidence:F2}");
+       }
+   }
+   ```
+
+   **Python**:
+   ```python
+   # Get people in the image
+   if result.people is not None:
+       print("\nPeople detected:")
+       for person in result.people.list:
+           print(f" Detected person, Confidence: {person.confidence * 100:.2f}%")
+   ```
+
+2. Save and run the program for each image file. Review the `people.jpg` output file to see detected people.
+
+---
+
+## **Remove Background or Generate Foreground Matte of an Image**
+
+1. Locate the `BackgroundForeground` function in the code.
+2. Under **Remove the background from the image or generate a foreground matte**, add the following code:
+
+   **C#**:
+   ```csharp
+   // Remove background
+   var client = new HttpClient();
+   client.BaseAddress = new Uri(endpoint);
+   var contentData = new StringContent(jsonData, Encoding.UTF8, "application/json");
+   var response = await client.PostAsync(url, contentData);
+   if (response.IsSuccessStatusCode)
+   {
+       File.WriteAllBytes("background.png", await response.Content.ReadAsByteArrayAsync());
+       Console.WriteLine("Results saved in background.png");
+   }
+   ```
+
+   **Python**:
+   ```python
+   # Remove background
+   headers = {"Ocp-Apim-Subscription-Key": key, "Content-Type": "application/json"}
+   response = requests.post(url, headers=headers, json=body)
+   if response.status_code == 200:
+       with open("background.png", "wb") as file:
+           file.write(response.content)
+       print("Results saved in background.png")
+   ```
+
+3. Run the program and check `background.png` to confirm that the background is removed.
+
+---
+
+## **Generate a Foreground Matte for the Image**
+
+1. In the `BackgroundForeground` function, change the mode variable to `foregroundMatting` and rerun the code.
+2. Save the foreground matte as `foreground.png` and confirm that it is correctly generated.
+
+---
+
+## **Clean Up Resources**
+
+1. Open the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+2. In the top search bar, search for **Azure AI services multi-service account**.
+3. Select the resource and choose **Delete**.
+4. Follow the on-screen instructions to delete the resource.
+
+---
+
+## **More Information**
+
+For additional capabilities and use cases, see the [Azure AI Vision documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/computer-vision/).
+
+--- 
+
