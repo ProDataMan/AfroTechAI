@@ -53,7 +53,7 @@ In this exercise, you'll complete a partially implemented client application tha
    pip install azure-ai-vision-imageanalysis==1.0.0b3
    ```
 
-   - **Tip**: If you are doing this lab on your own machine, you'll also need to install `matplotlib` and `pillow`.
+   - **Tip**: If you are doing this lab on your own machine, you'll also need to install `matplotlib` and `pillow` and `python-dotenv`.
 
 4. View the contents of the `image-analysis` folder and note the configuration settings file:
     - **C#**: `appsettings.json`
@@ -184,8 +184,26 @@ In this exercise, you'll complete a partially implemented client application tha
    # Get people in the image
    ```
 
----
+4. Save your changes and return to the integrated terminal for the image-analysis folder, and enter the following command to run the program with the argument images/street.jpg:
 
+   **C#**:
+   ```csharp
+
+   dotnet run images/street.jpg
+
+   ```
+
+   **Python**:
+   ```python
+
+   python image-analysis.py images/street.jpg
+
+   ```
+Observe the output, which should include a suggested caption for the street.jpg image.
+Run the program again, this time with the argument images/building.jpg to see the caption that gets generated for the building.jpg image.
+Repeat the previous step to generate a caption for the images/person.jpg file.
+Get suggested tags for an image
+It can sometimes be useful to identify relevant tags that provide clues about the contents of an image.
 ## **Get Suggested Tags for an Image**
 
 1. In the `AnalyzeImage` function, under the comment **Get image tags**, add the following code:
