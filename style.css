@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f8f9fa; /* Light gray background for the entire page */
+    color: #333;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recommendation {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation h2 {
+    margin: 0;
+    color: #fff; /* White text for team names */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add subtle shadow for better readability */
+}
+
+.team-section {
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff; /* Ensure text is white for all team sections */
+    text-align: center;
+}
+
+.reasoning,
+.news-article {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+ul {
+    list-style-type: square;
+}
+
+a {
+    color: #007bff; /* Bootstrap-style blue links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
